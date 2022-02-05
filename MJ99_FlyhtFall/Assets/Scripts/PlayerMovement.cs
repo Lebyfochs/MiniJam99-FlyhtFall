@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField] private bool isGrounded;
     [SerializeField] private Rigidbody rb;
     [SerializeField] public GameObject player;
 
@@ -19,17 +18,14 @@ public class PlayerMovement : MonoBehaviour
         player.transform.position += transform.forward * 8.0f * Time.deltaTime;
         //rb.useGravity = false;
         yield return null;
-        player.transform.position += transform.forward * 5.0f * Time.deltaTime;
+        player.transform.position += transform.forward * 7.0f * Time.deltaTime;
         yield return new WaitForSeconds(0.1f);
         //rb.useGravity = true;
-        player.transform.position += transform.forward * 5.0f * Time.fixedDeltaTime;
+        player.transform.position += transform.forward * 9.0f * Time.fixedDeltaTime;
         yield return null;
 
 
     }
-
-
-
     private void Awake()
     {
          rb = GetComponent<Rigidbody>();
@@ -37,11 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        isGrounded = true;
+       
         
     }
 
-  
     void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
@@ -63,7 +58,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-
   
 }
