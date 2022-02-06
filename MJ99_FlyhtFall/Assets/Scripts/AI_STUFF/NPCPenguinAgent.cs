@@ -19,7 +19,7 @@ public class NPCPenguinAgent : AIAgent
 
     void Start()
     {
-        moveSpeed = 2.0f;
+        moveSpeed = Random.Range(2.0f, 4.0f);
 
         states = new AIStateHandler(idle, this);
     }

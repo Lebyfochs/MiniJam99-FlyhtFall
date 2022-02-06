@@ -22,11 +22,11 @@ public class IdleState : MonoBehaviour, IState
             var newPos = movPositionTrans[Random.Range(0, movPositionTrans.Count)];
             penguin.navAI.destination = newPos.position;
 
-            while (Vector3.Distance(transform.position, penguin.navAI.destination) > 0.5f)
+            while (Vector3.Distance(transform.position, penguin.navAI.destination) > 0.8f)
             {
                 yield return null;
             }
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(Random.Range(2.0f, 6.0f));
         }
     }
 }
