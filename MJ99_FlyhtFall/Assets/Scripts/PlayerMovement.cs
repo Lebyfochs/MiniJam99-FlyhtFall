@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] public GameObject player;
 
+    
 
     //COROUTINE.
     IEnumerator Fly()
