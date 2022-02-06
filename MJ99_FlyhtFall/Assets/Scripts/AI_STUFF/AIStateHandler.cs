@@ -19,10 +19,10 @@ public class AIStateHandler : MonoBehaviour
 
     Coroutine coroutine1;
     Coroutine coroutine2;
-    public AIStateHandler(IState state, NPCPatronAgent patron, NPCPenguinAgent penguin)
+    public AIStateHandler(IState state, /*NPCPatronAgent patron,*/ NPCPenguinAgent penguin)
     {
         currentState = state;
-        this.AIpatron = patron;
+        //this.AIpatron = patron;
         this.AIpenguin = penguin;
 
         changeState(state);
@@ -32,17 +32,11 @@ public class AIStateHandler : MonoBehaviour
     {
         if (coroutine1 != null)
         {
-            AIpatron.StopCoroutine(coroutine1);
+            AIpenguin.StopCoroutine(coroutine1);
            
             coroutine1 = null;
         }
-        coroutine1 = AIpatron.StartCoroutine(currentState.doState());
+        coroutine1 = AIpenguin.StartCoroutine(currentState.doState());
 
-        if(coroutine2 != null)
-        {
-            AIpenguin.StopCoroutine(coroutine2);
-            coroutine2 = null;
-        }
-        coroutine2 = AIpenguin.StartCoroutine(currentState.doState());
     }
 }
